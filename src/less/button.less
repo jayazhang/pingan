@@ -1,0 +1,104 @@
+/*
+  按钮样式
+*/
+
+@import "./theme";
+
+.common-btn {
+  display: inline-block;
+  width: 100%;
+  /* 普通按钮高度30px */
+  line-height: 30px;
+  text-align: center;
+  background-color: @btn-released-color;
+  color: #fff;
+  font-size: 14px;
+  font-family: '宋体';
+  outline: none;
+  border: none;
+  user-select: none;
+  cursor: pointer;
+
+  /* 搜索按钮 */
+  &.search {
+	width: 50px;
+	height: 30px;
+	margin-left: 8px;
+	background: @btn-released-color url("../assets/btn-icons/btn-icon-search.png") no-repeat center center;
+	background-size: 16px 16px;
+
+	&:hover {
+	  background: @btn-mouseover-color url("../assets/btn-icons/btn-icon-search.png") no-repeat center center;
+	}
+
+	&:active {
+	  background: @btn-mousedown-color url("../assets/btn-icons/btn-icon-search.png") no-repeat center center;
+	}
+  }
+
+  /* 带有图标的按钮 */
+  &.icon-btn {
+	width: 130px;
+
+	&::before {
+	  content: ' ';
+	  display: inline-block;
+	  width: 16px;
+	  height: 16px;
+	  margin-right: 10px;
+	  vertical-align: sub;
+	}
+
+	/* 返回按钮 */
+	&.icon-btn-back::before {
+	  background: url("../assets/btn-icons/btn-icon-back.png") left center;
+	  background-size: 16px 16px;
+	}
+
+	/* 添加按钮 */
+	&.icon-btn-add::before {
+	  background: url("../assets/btn-icons/btn-icon-add.png") left center;
+	  background-size: 16px 16px;
+	}
+
+	/* 修改按钮 */
+	&.icon-btn-modify::before {
+	  background: url("../assets/btn-icons/btn-icon-modify.png") left center;
+	  background-size: 16px 16px;
+	}
+
+	/* 删除按钮 */
+	&.icon-btn-del::before {
+	  background: url("../assets/btn-icons/btn-icon-del.png") left center;
+	  background-size: 16px 16px;
+	}
+
+	/* 导出按钮 */
+	&.icon-btn-export {
+	  width: 150px;
+
+	  &::before {
+		background: url("../assets/btn-icons/btn-icon-export.png") left center;
+		background-size: 16px 16px;
+	  }
+	}
+
+	&:not(:last-child) {
+	  margin-right: 8px;
+	}
+  }
+
+  /* 超大按钮 高度40px */
+  &.lg {
+	line-height: 40px;
+  }
+
+  &:hover {
+	background-color: @btn-mouseover-color;
+  }
+
+  &:active {
+	background-color: @btn-mousedown-color;
+  }
+
+}

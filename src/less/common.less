@@ -1,0 +1,33 @@
+@import "./button";
+@import "./theme";
+@import "./table";
+
+/* 浮动 */
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+/* 占位用 */
+.placeholder {
+  display: inline-block;
+  opacity: 0;
+}
+
+/* 主页面logo宽度 */
+.logo-width {
+  width: @header-logo-width;
+
+  @media (max-width: 1300px) {
+    width: @header-logo-width-small;
+  }
+}
+
+/* 单行省略号 */
+.ellipsis {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,9 @@
+
+.gradient (@from, @to) {
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(@from), to(@to)); /** Chrome Safari **/
+  background: -moz-linear-gradient(top, @from, @to); /** FireFox **/
+  background: -o-linear-gradient(top, @from, @to);  /** Opear **/
+  background: -ms-linear-gradient(@from 0%, @to 100%);  /** IE9 IE10 **/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000',endColorstr='#aaaaaa',grandientType=1); /** IE7 **/
+  -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000',endColorstr='#aaaaaa',grandientType=1); /** IE8 **/
+}
