@@ -4,7 +4,9 @@ import Login from '@/views/Login'
 import Main from '@/views/Main'
 import Index from '@/views/Index'
 import Demo from '@/views/Demo'
-import DataSearch from '@/views/DataSearch'
+
+// 异步组件
+const DataSearch = () => import('@/views/DataSearch')
 
 Vue.use(Router)
 

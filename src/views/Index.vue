@@ -74,12 +74,10 @@
   }
 </script>
 
-<style rel="stylesheet/less" lang="less" scoped>
-  @import "../less/utls";
-  @import "../less/theme";
-  @import "../less/common";
-
-
+<style rel="stylesheet/less" type="text/less" lang="less" scoped>
+  @import "../less/utls.less";
+  @import "../less/theme.less";
+  @import "../less/common.less";
 
   .index {
     height: 100%;

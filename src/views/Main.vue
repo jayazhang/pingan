@@ -18,7 +18,7 @@
   }
 </script>
 
-<style rel="stylesheet/less" lang="less" scoped>
+<style rel="stylesheet/less" type="text/less" lang="less" scoped>
   @import "../less/theme";
 
   .main-content {
