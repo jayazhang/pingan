@@ -3,8 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// pannel组件
 import CommonPannel from '@/components/CommonPannel.vue'
 Vue.component('common-pannel', CommonPannel)
+// confirm插件
+import { ConfirmPlugin } from './plugin'
+Vue.use(ConfirmPlugin)
 
 Vue.config.productionTip = false
 
