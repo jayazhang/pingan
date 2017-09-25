@@ -1,5 +1,6 @@
 <template>
   <div id="demo">
+    <h2>按钮</h2>
     <div class="btn">
       <div class="class">带有icon的按钮（宽度130px）：common-btn icon-btn icon-btn-add</div>
       <a class="common-btn icon-btn icon-btn-add">添加</a>
@@ -32,7 +33,7 @@
       <div class="class">高度40px按钮（宽度100%）：common-btn lg</div>
       <a class="common-btn lg">高度40px按钮</a>
     </div>
-
+    <h2>confirm</h2>
     <div class="confirm" style="margin-top: 40px">
       <button @click="openConfirm('del', '删除哈哈哈哈哈哈')">打开删除弹框</button>
       <button @click="openConfirm('danger', 'ooooo')">打开警告弹框</button>
@@ -45,6 +46,43 @@
       <button @click="openConfirmDouble">打开一个弹框点击确定后打开另外一个弹框（普通方式）</button>
       <button @click="openConfirmDoublePromise">打开一个弹框点击确定后打开另外一个弹框(返回promise)</button>
     </div>
+
+    <h2>pannel</h2>
+    <common-pannel title="pannel 正常的" style="margin: 40px 0">
+      <div>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+      </div>
+    </common-pannel>
+
+    <common-pannel title="pannel 45px高度的title" title-type="lg" style="margin: 40px 0">
+      <div>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+      </div>
+    </common-pannel>
+
+    <common-pannel title="pannel 自定义内部padding" padding="0" title-type="lg" style="margin: 40px 0">
+      <div>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+        内容<br/>
+      </div>
+    </common-pannel>
   </div>
 </template>
 
