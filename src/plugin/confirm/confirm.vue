@@ -4,7 +4,7 @@
     <div class="confirm-content" :class="{ show: show }">
       <div class="confirm-content-title">
         <div class="title">{{title}}</div>
-        <div class="close" @click="fail"></div>
+        <div class="close" @click="close"></div>
       </div>
       <div class="confirm-content-body clearfix">
         <div class="left">
@@ -13,8 +13,11 @@
         <div class="right" v-html="content"></div>
       </div>
       <div class="confirm-content-footer" v-show="isShowCancelBtn || isShowConfirmBtn">
-        <button v-show="isShowConfirmBtn" class="common-btn btn-confirm" @click="success">{{confirmBtnText}}</button>
-        <button v-show="isShowCancelBtn" class="common-btn btn-confirm cancel" @click="fail">{{cancelBtnText}}</button>
+        <button v-show="isShowConfirmBtn"
+                class="common-btn btn-confirm"
+                :disabled="isDisabled"
+                @click="success">{{confirmBtnText}}</button>
+        <button v-show="isShowCancelBtn" class="common-btn btn-confirm cancel" @click="close">{{cancelBtnText}}</button>
       </div>
     </div>
   </div>
@@ -26,7 +29,7 @@
     del: require('../../assets/icon/icon_06.png'),
     ques: require('../../assets/icon/icon_08.png'),
     success: require('../../assets/icon/icon_10.png'),
-    fail: require('../../assets/icon/icon_12.png'),
+    close: require('../../assets/icon/icon_12.png'),
   }
 
   export default {
@@ -63,35 +66,51 @@
       isShowCancelBtn: {
         type: Boolean,
         default: true
+      },
+      isDisabled: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
       return { iconList }
     },
     methods: {
+      doSomething (fun) {
+        if (typeof fun === 'function') {
+          fun()
+        }
+        if (typeof fun === 'string') {
+          this.doSomething(this[fun])
+        }
+      },
+      // 点击确定时
       success () {
-        if (typeof this.ok === 'function' && this.ok instanceof Promise) {
+        if (this.isPromise) {
+          console.log(1111)
+          this.isDisabled = true
+          this.confirmBtnText = this.confirmBtnText + '中'
           this.ok().then(() => {
             this.show = false
-            this.complete()
+            this.isDisabled = false
+            this.doSomething('complete')
           })
-        }
-        if (typeof this.ok === 'function') {
-          this.ok()
-          this.complete()
+        } else {
+          this.doSomething('ok')
+          this.doSomething('complete')
           this.show = false
         }
       },
-      fail () {
-        if (typeof this.cancel === 'function') {
-          this.cancel()
-          this.complete()
-          this.show = false
-        }
+      close () {
+        // 确认中时，不能关闭弹框
+        if (this.isDisabled) return
+        this.doSomething('cancel')
+        this.doSomething('complete')
+        this.show = false
       },
       clickBackdrop () {
         if (!this.clickBackdropIsCancel) return
-        this.fail()
+        this.close()
       }
     }
   }

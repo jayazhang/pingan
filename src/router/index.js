@@ -3,10 +3,10 @@ import Router from 'vue-router'
 import Login from '@/views/Login'
 import Main from '@/views/Main'
 import Index from '@/views/Index'
-import Demo from '@/views/Demo'
 
 // 异步组件
 const DataSearch = () => import('@/views/DataSearch')
+const Demo = () => import('@/views/Demo')
 
 Vue.use(Router)
 

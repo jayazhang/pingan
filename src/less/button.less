@@ -18,20 +18,23 @@
   border: none;
   user-select: none;
   cursor: pointer;
-  /* confirm按钮无鼠标触碰时背景色 */
-  @confirm-btn-released-color: #3573e0;
-  /* confirm 取消 按钮无鼠标触碰时背景色 */
-  @confirm-cancel-released-color: #dcedfe;
-  /* confirm 取消 按钮文字颜色 */
-  @confirm-cancel-color: #3573e0;
-  /* confirm按钮--鼠标滑过时背景色 */
-  @confirm-btn-mouseover-color: #99ccff;
-  /* confirm按钮--鼠标按下时背景色 */
-  @confirm-btn-mousedown-color: #6699ff;
+
   /* confirm弹框按钮 */
   &.btn-confirm {
     width: 80px;
     line-height: 20px;
+
+    &:disabled {
+      background-color: @confirm-btn-not-color;
+      cursor: not-allowed;
+      color: #fff;
+
+      &:hover,
+      &:active {
+        background-color: @confirm-btn-not-color;
+        cursor: not-allowed;
+      }
+    }
 
     &:not(:last-child) {
       margin-right: 8px;

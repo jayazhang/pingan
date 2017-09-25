@@ -71,13 +71,6 @@
 <script>
   export default {
     name: 'index',
-    created () {
-      setTimeout(() => {
-        this.$common.confirm({
-          content: '测试测试测试再测试'
-        })
-      }, 200)
-    }
   }
 </script>
 

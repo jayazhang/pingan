@@ -9,7 +9,10 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.js',
+    vendor: [
+      'es6-promise/auto'
+    ]
   },
   output: {
     path: config.build.assetsRoot,

@@ -31,6 +31,8 @@ const defaultOptions = {
   isShowBackdrop: true,
   // 点击遮罩是否关闭弹框
   clickBackdropIsCancel: true,
+  // ok方法返回的是否是promise
+  isPromise: false,
   // 点击确定按钮执行
   ok: function () {
 

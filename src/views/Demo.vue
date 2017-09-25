@@ -40,6 +40,11 @@
       <button @click="openConfirm('fail', null, '提 示')">打开失败弹框</button>
       <button @click="openConfirm('success')">打开成功弹框</button>
     </div>
+
+    <div class="confirm" style="margin-top: 40px">
+      <button @click="openConfirmDouble">打开一个弹框点击确定后打开另外一个弹框（普通方式）</button>
+      <button @click="openConfirmDoublePromise">打开一个弹框点击确定后打开另外一个弹框(返回promise)</button>
+    </div>
   </div>
 </template>
 
@@ -84,6 +89,40 @@
           }
         }
         this.$common.confirm(defaultOptions)
+      },
+      openConfirmDouble () {
+        let self = this
+        this.$common.confirm({
+          title: '第一次',
+          content: '第一次弹框内容',
+          ok () {
+            self.$common.confirm({
+              title: '第二次',
+              isShowCancelBtn: false,
+              content: '第二次弹框内容'
+            })
+          }
+        })
+      },
+      openConfirmDoublePromise () {
+        let self = this
+        self.$common.confirm({
+          title: '第一次',
+          content: '第一次弹框内容',
+          isPromise: true,
+          ok: function () {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                self.$common.confirm({
+                  title: '第二次',
+                  isShowCancelBtn: false,
+                  content: '第二次弹框内容'
+                })
+                resolve(true)
+              }, 3000)
+            })
+          }
+        })
       }
     }
   }
