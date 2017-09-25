@@ -29,7 +29,7 @@
     del: require('../../assets/icon/icon_06.png'),
     ques: require('../../assets/icon/icon_08.png'),
     success: require('../../assets/icon/icon_10.png'),
-    close: require('../../assets/icon/icon_12.png'),
+    fail: require('../../assets/icon/icon_12.png'),
   }
 
   export default {
